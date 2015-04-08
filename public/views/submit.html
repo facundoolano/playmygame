@@ -2,14 +2,15 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<p class="lead">Submit your game</p>
-		<form>
+		<form name="submitForm">
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Google Play ID</label>
-		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter the Google Play ID">
+		    <label for="appId">Google Play ID</label>
+		    <input type="text" class="form-control" id="appId" placeholder="Enter the Google Play ID" ng-model="app.appId" required>
+		    <span class="error" ng-show="submitForm.appId.$error.required">Required!</span>
 		    <p class="help-block">Example: com.dxco.pandavszombies</p>
 		  </div>
 		  <div class="form-actions">
-		  	<button type="submit" class="btn btn-lg btn-success">Submit</button>
+		  	<button type="submit" ng-click="submit();" class="btn btn-lg btn-success">Submit</button>
 		  </div>
 		</form>
 	</div>
