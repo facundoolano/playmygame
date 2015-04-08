@@ -1,14 +1,54 @@
 <!doctype html>
 <head>
-    <title>Chatcholano</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+
+    <title>PlayMyGame</title>
 </head>
 <body ng-app="chatApp">
-    <p> hello, this is the main page </p>
-    <div class="container" ng-view></div>
+<div class="container" ng-view>
 
+	<div class="row">
+	    <div class="col-md-6 col-md-offset-3">
+	    	<h1 class="title text-center">PlayMyGame</h1>
+	    	<p class="lead text-center">Discover the secret jewels on Google Play.</p>
+	    	<p class="text-center"><a>Learn more</a>.</p>
+	    	<div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<strong>Panda vs Zombies: Elvis Rage</strong> <small>by DxCo Games</small>
+			  	<span class="pull-right"><a>Skip <span aria-hidden="true">&raquo;</span></a></span>
+			  </div>
+			  <div class="panel-body">
+			    <div class="row">
+				    <img src="https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w300-rw" style="width: 200px" class="col-md-2"/>
+				    <p>Everyone in the neighborhood has gone zombie: zombies in the cemetery, zombies in the street, zombies in the countryside...</p>
+				    <p style="text-align:middle;">
+					    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					    4.7 (<span class="glyphicon glyphicon-user"/>231)
+					    <span class="glyphicon glyphicon-download-alt"/>1000
+				    </p>
+				    <p class="text-center">
+				    	<!--a class="btn btn-lg btn-default" href="#" role="button">Skip</a-->
+				    	<a class="btn btn-lg btn-success" href="#" role="button">Install!</a>
+				    </p>
+			    </div>
+			  </div>
+			</div>
+			<p class="text-center">Developer? <a>Submit your game</a>.</p>
+	    </div>
+	</div>
+
+</div>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-
     <!--script src="javascripts/controllers/messages.js"></script>
     <script src="javascripts/app.js"></script-->
 </body>
