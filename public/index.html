@@ -10,51 +10,23 @@
 
     <title>PlayMyGame</title>
 </head>
-<body ng-app="chatApp">
-<div class="container" ng-view>
+<body ng-app="playMyGameApp">
 
-	<div class="row">
-	    <div class="col-md-6 col-md-offset-3">
-	    	<h1 class="title text-center">PlayMyGame</h1>
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+	    	<h1 class="title text-center"><a class="nounderline" href="#/">PlayMyGame</a></h1>
 	    	<p class="lead text-center">Discover the secret jewels on Google Play.</p>
-	    	<p class="text-center"><a>Learn more</a>.</p>
-	    	<div class="panel panel-default">
-			  <div class="panel-heading">
-			  	<strong>Panda vs Zombies: Elvis Rage</strong> <small>by DxCo Games</small>
-			  	<span class="pull-right"><a>Skip <span aria-hidden="true">&raquo;</span></a></span>
-			  </div>
-			  <div class="panel-body">
-			    <div class="row">
-			    	<div class="col-md-5 col-sm-4">
-			    		<a href="#" class="thumbnail">
-			    			<img src="https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w300-rw"/>
-			    		</a>
-			    	</div>
-				    <div class="col-md-7 col-sm-8">
-					    <p>Everyone in the neighborhood has gone zombie: zombies in the cemetery, zombies in the street, zombies in the countryside...</p>
-					    <p>
-						    <span class="fa fa-star" aria-hidden="true"></span>
-						    <span class="fa fa-star" aria-hidden="true"></span>
-						    <span class="fa fa-star" aria-hidden="true"></span>
-						    <span class="fa fa-star" aria-hidden="true"></span>
-						    <span class="fa fa-star" aria-hidden="true"></span>
-						    4.7 (<span class="fa fa-user"/> 231) - <span class="fa fa-download"/> 1000
-					    </p>
-					    <p class="install text-center">
-					    	<!--a class="btn btn-lg btn-default" href="#" role="button">Skip</a-->
-					    	<a class="btn btn-lg btn-success" href="#" role="button">Install!</a>
-					    </p>
-					</div>
-			    </div>
-			  </div>
-			</div>
-			<p class="text-center">Developer? <a>Submit your game</a>.</p>
+	    	<p class="text-center"><a href="#/about">Learn more</a>.</p>
+
+			<div ng-view></div>
+
+			<p class="text-center">Developer? <a href="#/submit">Submit your game</a>.</p>
 	    </div>
 	</div>
 
-</div>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <!--script src="javascripts/controllers/messages.js"></script>
-    <script src="javascripts/app.js"></script-->
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="javascripts/controllers/submit.js"></script>
+	<script src="javascripts/controllers/show.js"></script>
+	<script src="javascripts/app.js"></script>
 </body>
