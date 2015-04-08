@@ -1,8 +1,16 @@
 
+body {
+  background: url(/images/pixel_weave.png) repeat 0 0;
+}
+
 .title {
 	font-family: 'Patua One', cursive;
 }
 
-body {
-  background: url(/images/pixel_weave.png) repeat 0 0;
+.install {
+	padding-top: 14px;
+}
+
+.thumbnail {
+	border: none;
 }
