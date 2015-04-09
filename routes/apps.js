@@ -13,10 +13,13 @@ router.get("/", function(req, res) {
 router.post("/", function(req, res) {
 
     var id = req.body.appId;
-    if (!id) return res.status(400).json("Google Play ID missing");
+    if (!id) return res.status(400).json("Google Play ID missing.");
 
     //TODO handle wrong app id
     gplay(id)
+        .catch(function(){
+            raise("The given Google Play ID is invalid.");
+        })
         .then(validateData)
         .then(saveApp)
         .then(function(data) {
