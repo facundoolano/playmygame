@@ -7,7 +7,7 @@
   <div class="panel-body">
     <div class="row">
     	<div class="col-md-5 col-sm-4">
-    		<a href="#" class="thumbnail">
+    		<a ng-href="{{app.url}}" target="_blank" class="thumbnail">
     			<img ng-src="{{app.icon}}"/>
     		</a>
     	</div>
@@ -19,7 +19,7 @@
 		    </p>
 		    <p class="install text-center">
 		    	<!--a class="btn btn-lg btn-default" href="#" role="button">Skip</a-->
-		    	<a class="btn btn-lg btn-success" href="#" role="button">Install!</a>
+		    	<a class="btn btn-lg btn-success" ng-href="{{app.url}}" target="_blank" role="button">Install!</a>
 		    </p>
 		</div>
     </div>
