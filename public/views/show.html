@@ -1,25 +1,21 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-  	<span class="game-title">Panda vs Zombies: Elvis Rage</span> <small>by DxCo Games</small>
-  	<span class="pull-right"><a>Next <span aria-hidden="true">&raquo;</span></a></span>
+  	<span class="game-title">{{app.title}}</span> <small>by {{app.developer}}</small>
+  	<span class="pull-right"><a ng-click="next()">Next <span aria-hidden="true">&raquo;</span></a></span>
   </div>
   <div class="panel-body">
     <div class="row">
     	<div class="col-md-5 col-sm-4">
     		<a href="#" class="thumbnail">
-    			<img src="https://lh6.ggpht.com/5mI27oolnooL__S3ns9qAf_6TsFNExMtUAwTKz6prWCxEmVkmZZZwe3lI-ZLbMawEJh3=w300-rw"/>
+    			<img ng-src="{{app.icon}}"/>
     		</a>
     	</div>
 	    <div class="col-md-7 col-sm-8">
-		    <p>Everyone in the neighborhood has gone zombie: zombies in the cemetery, zombies in the street, zombies in the countryside, zombies, zombies, zombies. And not just the peasant...</p>
+		    <p>{{description()}}</p>
 		    <p>
-			    <span class="fa fa-star" aria-hidden="true"></span>
-			    <span class="fa fa-star" aria-hidden="true"></span>
-			    <span class="fa fa-star" aria-hidden="true"></span>
-			    <span class="fa fa-star" aria-hidden="true"></span>
-			    <span class="fa fa-star" aria-hidden="true"></span>
-			    4.7 (<span class="fa fa-user"/> 231) - <span class="fa fa-download"/> 1000
+			    <span class="fa fa-star" aria-hidden="true" ng-repeat="i in stars() track by $index"></span>
+			    {{app.score}} (<span class="fa fa-user"/> {{app.reviews}}) - <span class="fa fa-download"/> {{app.installs}}
 		    </p>
 		    <p class="install text-center">
 		    	<!--a class="btn btn-lg btn-default" href="#" role="button">Skip</a-->
