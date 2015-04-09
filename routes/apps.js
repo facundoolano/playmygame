@@ -6,13 +6,17 @@ var winston = require("winston");
 
 /* GET an application. */
 router.get("/", function(req, res) {
-    //TODO get the one with better priority
+
     App.count()
         .then(function(count) {
-            var rand = Math.floor(Math.random() * count);
-            return App.findOne().skip(rand).lean().exec();
+
+            var skip = (req.query.skip || 0) % count;
+
+            return App.findOne().sort({priority: -1})
+                .skip(skip).lean().exec();
         })
         .then(res.json.bind(res));
+
 });
 
 /* POST an application. */
@@ -60,6 +64,7 @@ function saveApp(data) {
     delete data["maxInstalls"];
 
     var app = new App(data);
+    app.setPriority();
     return app.save().then(function() {
         return app;
     });

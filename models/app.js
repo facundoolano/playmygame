@@ -15,6 +15,7 @@ var appSchema = mongoose.Schema({
     priority: {type: Number, index: true}
 });
 
+//TODO call this automatically on save
 appSchema.methods.setPriority = function() {
 
     var installsScore = this.getInstallsScore();
@@ -74,7 +75,7 @@ appSchema.methods.getInstallsScore = function() {
 /*
 * Normalizes the app's score to 0-10.
 */
-appSchema.methods.ratingScore = function() {
+appSchema.methods.getRatingScore = function() {
     return this.score * 2;
 };
 

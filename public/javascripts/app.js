@@ -22,7 +22,15 @@ playMyGameApp.config(["$routeProvider",
       }]);
 
 function appResolver($http) {
-    return $http.get('/apps').then(function(response){
+    //save state to see different apps every time
+    var skip = Number(sessionStorage.skip);
+    if (!skip) {
+        sessionStorage.skip = skip = 0;
+    }
+
+
+    return $http.get('/apps?skip=' + skip).then(function(response){
+        sessionStorage.skip = skip + 1;
         return response.data;
     });
 }
