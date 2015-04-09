@@ -36,10 +36,11 @@ router.post("/", function(req, res) {
 });
 
 function validateData(data) {
-    if (data.minInstalls >= 100000) raise("Your app has too many downloads. We don't want it.");
+    if (data.minInstalls >= 100000) raise("Your game has too many downloads. We don't want it.");
+    if (!data.free) raise("Only free games please.");
 
     return App.findOne({appId: data.appId}).exec().then(function(app) {
-        if (app) raise("This app was already submitted.");
+        if (app) raise("This game was already submitted.");
 
         return data;
     });
