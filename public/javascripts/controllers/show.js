@@ -1,28 +1,17 @@
 var showAppCtrl = angular.module('showAppCtrl', []);
 
-showAppCtrl.controller('showAppCtrl', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
-    $scope.app = undefined;
+
+showAppCtrl.controller('showAppCtrl', ['app', '$scope', '$filter', '$route', function(app, $scope, $filter, $route) {
+    console.log("GOT HERE");
+    console.log(app);
+    $scope.app = app;
     $scope.description = description;
     $scope.stars = stars;
-    $scope.next = next;
-
-    $http.get('/apps')
-        .success(function(data) {
-            $scope.app = data;
-        })
-        .error(function(data) {
-            console.log('Error getting app: ' + data);
-        });
-
-    function next() {
-        //TODO
-    }
+    $scope.next = $route.reload;
 
     function description() {
-        if (!$scope.app) return "";
-        var desc = $scope.app.description;
-
         var LIMIT = 200;
+        var desc = $scope.app.description;
 
         if (desc.length > LIMIT) {
             desc = $filter("limitTo")(desc, LIMIT - 1) + "…";
@@ -32,7 +21,6 @@ showAppCtrl.controller('showAppCtrl', ['$scope', '$filter', '$http', function($s
     }
 
     function stars() {
-        if (!$scope.app) return 0;
         var count = Math.round($scope.app.score);
         return new Array(count);
     }
