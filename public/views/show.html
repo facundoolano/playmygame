@@ -1,0 +1,27 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<span class="game-title">{{app.title}}</span> <small>by {{app.developer}}</small>
+  	<span class="pull-right"><a ng-click="next()" href="">Next <span aria-hidden="true">&raquo;</span></a></span>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+    	<div class="col-md-5 col-sm-4">
+    		<a ng-href="{{app.url}}" target="_blank" class="thumbnail">
+    			<img ng-src="{{app.icon}}"/>
+    		</a>
+    	</div>
+	    <div class="col-md-7 col-sm-8">
+		    <p>{{description()}}</p>
+		    <p>
+			    <span class="fa fa-star" aria-hidden="true" ng-repeat="i in stars() track by $index"></span>
+			    {{app.score}} (<span class="fa fa-user"/> {{app.reviews}}) - <span class="fa fa-download"/> {{app.installs}}
+		    </p>
+		    <p class="install text-center">
+		    	<!--a class="btn btn-lg btn-default" href="#" role="button">Skip</a-->
+		    	<a class="btn btn-lg btn-success" ng-href="{{app.url}}" target="_blank" role="button">Install!</a>
+		    </p>
+		</div>
+    </div>
+  </div>
+</div>

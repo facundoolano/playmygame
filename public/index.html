@@ -1,0 +1,32 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <title>PlayMyGame</title>
+</head>
+<body ng-app="playMyGameApp">
+
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+	    	<h1 class="title text-center"><a class="nounderline" href="#/">PlayMyGame</a></h1>
+	    	<p class="lead text-center">Discover the secret jewels on Google Play.</p>
+	    	<p class="text-center"><a href="#/about">Learn more</a>.</p>
+
+			<div ng-view></div>
+
+			<p class="text-center">Developer? <a href="#/submit">Submit your game</a>.</p>
+	    </div>
+	</div>
+
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="javascripts/controllers/submit.js"></script>
+	<script src="javascripts/controllers/show.js"></script>
+	<script src="javascripts/app.js"></script>
+</body>

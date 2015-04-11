@@ -1,0 +1,30 @@
+
+body {
+  background: url(/images/pixel_weave.png) repeat 0 0;
+}
+
+.title {
+	font-family: 'Patua One', cursive;
+}
+
+.nounderline, .nounderline:hover, .nounderline:focus{
+	text-decoration: none;
+	color: #333;
+}
+
+.install {
+	padding-top: 14px;
+}
+
+.thumbnail {
+	border: none;
+}
+
+.game-title {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.form-actions {
+	text-align: center;
+}
