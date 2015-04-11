@@ -64,6 +64,7 @@ appSchema.methods.getInstallsScore = function() {
     switch (this.installs) {
         case 0: return 10;
         case 100: return 9.5;
+        case 500: return 9;
         case 1000: return 8;
         case 5000: return 5;
         case 10000: return 2;
