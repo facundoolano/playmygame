@@ -23,7 +23,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/playmygame');
+var MONGO_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/playmygame';
+
+mongoose.connect(MONGO_URI);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
