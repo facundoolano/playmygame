@@ -32,8 +32,12 @@ db.once('open', function callback () {
   console.log("Connected to mongoose!")
 });
 
-app.use('/', routes);
 app.use('/apps', apps);
+
+//serve the index html on all frontend urls
+app.use('/', routes);
+app.use('/about', routes);
+app.use('/submit', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

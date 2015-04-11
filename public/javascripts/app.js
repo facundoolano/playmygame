@@ -1,8 +1,8 @@
 
 var playMyGameApp = angular.module("playMyGameApp", ["ngRoute", "showAppCtrl", "submitAppCtrl"]);
 
-playMyGameApp.config(["$routeProvider",
-      function($routeProvider) {
+playMyGameApp.config(["$routeProvider", "$locationProvider",
+      function($routeProvider, $locationProvider) {
         $routeProvider.
           when("/", {
             templateUrl: "views/show.html",
@@ -19,6 +19,7 @@ playMyGameApp.config(["$routeProvider",
           otherwise({
             redirectTo: "/"
           });
+        $locationProvider.html5Mode(true);
       }]);
 
 function appResolver($http) {

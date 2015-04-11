@@ -1,4 +1,6 @@
 
+html {overflow-y: scroll;}
+
 body {
   background: url(/images/pixel_weave.png) repeat 0 0;
 }
