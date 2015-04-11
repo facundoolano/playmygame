@@ -8,6 +8,9 @@ submitAppCtrl.controller('submitAppCtrl', ['$scope', '$http', function($scope, $
 	$scope.submit = submit;
 
 	function submit() {
+		$scope.success = false;
+		$scope.error = "";
+
 		$http.post('/apps', $scope.app).success(function(data) {
 			$scope.success = true;
 		})
