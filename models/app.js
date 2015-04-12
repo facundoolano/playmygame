@@ -15,7 +15,22 @@ var appSchema = mongoose.Schema({
     priority: {type: Number, index: true}
 });
 
-//TODO call this automatically on save
+
+/*
+* Cleans the data scraped from google play and sets it to the doc fields.
+* Also updates the priority of the doc based on the new values.
+*/
+appSchema.methods.setScrapedData = function(data) {
+    //clean fields
+    delete data["descriptionHTML"];
+    data["installs"] = data["minInstalls"];
+    delete data["minInstalls"];
+    delete data["maxInstalls"];
+
+    this.set(data);
+    this.setPriority();
+};
+
 appSchema.methods.setPriority = function() {
 
     var installsScore = this.getInstallsScore();
@@ -23,7 +38,7 @@ appSchema.methods.setPriority = function() {
 
     if (this.reviewsNonRepresentative()) {
         //consider only installs
-        this.priority = 3 * installsScore;
+        this.priority = 2.75 * installsScore;
     } else {
 
         if (this.highReviewRatio()) {
@@ -41,7 +56,7 @@ appSchema.methods.setPriority = function() {
 * considered representative of the app's quality.
 */
 appSchema.methods.reviewsNonRepresentative = function() {
-    return this.reviews < 100;
+    return this.reviews < 50;
 };
 
 /*
@@ -63,6 +78,7 @@ appSchema.methods.getInstallsScore = function() {
     //this abuses the fact that the scraper only gets round estimates
     switch (this.installs) {
         case 0: return 10;
+        case 1: return 10;
         case 50: return 9.5;
         case 100: return 9;
         case 500: return 8;

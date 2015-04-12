@@ -56,15 +56,13 @@ function validateData(data) {
     });
 }
 
+/*
+* Creates a new App model, populates it with the scraped data and saves it.
+*/
 function saveApp(data) {
-    //clean fields
-    delete data["descriptionHTML"];
-    data["installs"] = data["minInstalls"];
-    delete data["minInstalls"];
-    delete data["maxInstalls"];
+    var app = new App();
+    app.setScrapedData(data);
 
-    var app = new App(data);
-    app.setPriority();
     return app.save().then(function() {
         return app;
     });
