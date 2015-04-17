@@ -6,6 +6,7 @@ var appSchema = mongoose.Schema({
     developer: String,
     url: String,
     icon: String,
+    video: String,
     installs: Number,
     score: Number,
     reviews: Number,
@@ -35,20 +36,23 @@ appSchema.methods.setPriority = function() {
 
     var installsScore = this.getInstallsScore();
     var ratingScore = this.getRatingScore();
+    var priority;
 
     if (this.reviewsNonRepresentative()) {
         //consider only installs
-        this.priority = 2.75 * installsScore;
+        priority = 2.75 * installsScore;
     } else {
 
         if (this.highReviewRatio()) {
             //more weight to score than installs
-            this.priority = 2 * ratingScore + 1 * installsScore;
+            priority = 2 * ratingScore + 1 * installsScore;
         } else {
             //more weight to installs than score
-            this.priority = 1 * ratingScore + 2 * installsScore;
+            priority = 1 * ratingScore + 2 * installsScore;
         }
     }
+
+    this.priority = priority + this.videoBoost();
 };
 
 /*
@@ -57,6 +61,15 @@ appSchema.methods.setPriority = function() {
 */
 appSchema.methods.reviewsNonRepresentative = function() {
     return this.reviews < 50;
+};
+
+/*
+* Give extra points to apps that have a video (no video probably means no
+* love on app listing).
+*/
+appSchema.methods.videoBoost = function() {
+    if (this.video) return 5;
+    return 0;
 };
 
 /*
