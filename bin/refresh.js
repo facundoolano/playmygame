@@ -41,5 +41,8 @@ function refresh(app) {
             app.setScrapedData(data);
             return app.save();
         })
-        .catch(console.log);
+        .catch(function(e){
+            console.log(app.appId, "failed");
+            console.log(e);
+        });
 }
