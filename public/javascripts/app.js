@@ -1,5 +1,5 @@
 
-var playMyGameApp = angular.module("playMyGameApp", ["ngRoute", "ngTouch", "showAppCtrl", "submitAppCtrl"]);
+var playMyGameApp = angular.module("playMyGameApp", ["ngRoute", "ngTouch", "ngAnimate", "showAppCtrl", "submitAppCtrl"]);
 
 playMyGameApp.config(["$routeProvider", "$locationProvider",
       function($routeProvider, $locationProvider) {

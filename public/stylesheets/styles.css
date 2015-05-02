@@ -30,3 +30,28 @@ body {
 .form-actions {
 	text-align: center;
 }
+
+.slide.ng-enter {
+  transition: left 300ms ease;
+  -webkit-transition:left 300ms ease;
+  -moz-transition: left 300ms ease;
+  -o-transition: left 300ms ease;
+
+  position:relative;
+  opacity:0;
+  left:100%;
+}
+
+.slide.ng-leave{
+	left:-100%;
+}
+
+.slide.ng-enter.ng-enter-active{
+  left:0;
+  opacity: 1;
+}
+.slide.ng-leave.ng-leave-active{
+  left:0;
+  opacity:1;
+}
+}

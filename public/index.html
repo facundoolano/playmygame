@@ -20,7 +20,7 @@
 	    	<p class="lead text-center">Discover the secret jewels on Google Play</p>
 	    	<p class="text-center"><a href="/about">Learn more</a>.</p>
 
-			<div ng-view></div>
+			<div ng-view class="{{ slide }}"></div>
 
 			<p class="text-center">Developer? <a href="/submit">Submit your game</a>.</p>
 	    </div>
@@ -29,6 +29,7 @@
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="javascripts/controllers/submit.js"></script>
 	<script src="javascripts/controllers/show.js"></script>
 	<script src="javascripts/app.js"></script>
