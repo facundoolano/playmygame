@@ -6,7 +6,7 @@
 		<div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
 		<form name="submitForm" ng-show="!success">
 		  <div class="form-group">
-		    <input type="text" class="form-control" id="appId" placeholder="Enter the Google Play ID" ng-model="app.appId" required>
+		    <input type="text" class="form-control" id="appId" placeholder="Enter the Google Play ID or url" ng-model="app.appId" required>
 		    <span class="error" ng-show="submitForm.appId.$error.required">Required!</span>
 		    <p class="help-block">Example: com.dxco.pandavszombies</p>
 		  </div>

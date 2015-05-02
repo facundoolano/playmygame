@@ -32,10 +32,10 @@ body {
 }
 
 .slide.ng-enter {
-  transition: left 300ms ease;
-  -webkit-transition:left 300ms ease;
-  -moz-transition: left 300ms ease;
-  -o-transition: left 300ms ease;
+  transition: left 150ms ease;
+  -webkit-transition:left 150ms ease;
+  -moz-transition: left 150ms ease;
+  -o-transition: left 150ms ease;
 
   position:relative;
   opacity:0;

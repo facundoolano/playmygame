@@ -3,6 +3,8 @@ var router = express.Router();
 var gplay = require("google-play-scraper");
 var App = require("../models/app.js");
 var winston = require("winston");
+var url = require("url");
+var qs = require("querystring");
 
 /* GET an application. */
 router.get("/", function(req, res) {
@@ -24,6 +26,13 @@ router.post("/", function(req, res) {
 
     var id = req.body.appId;
     if (!id) return res.status(400).json("Google Play ID missing.");
+
+    //check if it's a full url
+    var appUrl = url.parse(id);
+    if (appUrl.hostname) {
+        id = qs.parse(appUrl.query).id;
+        if (!id) return res.status(400).json("Invalid Google Play URL.");
+    }
 
     //TODO handle wrong app id
     gplay(id)
