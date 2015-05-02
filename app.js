@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var apps = require('./routes/apps');
+var sitemap = require('./routes/sitemap');
 
 var app = express();
 
@@ -33,6 +34,7 @@ db.once('open', function callback () {
 });
 
 app.use('/apps', apps);
+app.use('/sitemap.xml', sitemap);
 
 //serve the index html on all frontend urls
 app.use('/', routes);
