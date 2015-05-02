@@ -36,6 +36,8 @@ app.use('/apps', apps);
 
 //serve the index html on all frontend urls
 app.use('/', routes);
+app.use('/show', routes);
+app.use('/show/:appId', routes);
 app.use('/about', routes);
 app.use('/submit', routes);
 

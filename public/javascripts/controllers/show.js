@@ -1,11 +1,11 @@
 var showAppCtrl = angular.module('showAppCtrl', []);
 
 
-showAppCtrl.controller('showAppCtrl', ['app', '$scope', '$filter', '$route', function(app, $scope, $filter, $route) {
+showAppCtrl.controller('showAppCtrl', ['app', '$scope', '$filter', '$location', function(app, $scope, $filter, $location) {
     $scope.app = app;
     $scope.description = description;
     $scope.stars = stars;
-    $scope.next = $route.reload;
+    $scope.next = next;
 
     if (isTouchDevice()) {
         $scope.slide = "slide";
@@ -25,6 +25,10 @@ showAppCtrl.controller('showAppCtrl', ['app', '$scope', '$filter', '$route', fun
     function stars() {
         var count = Math.round($scope.app.score);
         return new Array(count);
+    }
+
+    function next() {
+        $location.path("/show");
     }
 
     function isTouchDevice() {

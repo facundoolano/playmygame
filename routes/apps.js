@@ -21,6 +21,18 @@ router.get("/", function(req, res) {
 
 });
 
+router.get("/:appId", function(req, res) {
+    var appId = req.params.appId;
+    return App.findOne({appId: appId}).exec()
+        .then(function(app) {
+            if (!app) res.status(404).json("App not found");
+
+            return app;
+        })
+        .then(res.json.bind(res));
+
+});
+
 /* POST an application. */
 router.post("/", function(req, res) {
 
