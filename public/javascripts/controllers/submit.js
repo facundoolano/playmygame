@@ -1,18 +1,16 @@
 var submitAppCtrl = angular.module('submitAppCtrl', []);
 
-submitAppCtrl.controller('submitAppCtrl', ['$scope', '$http', function($scope, $http) {
+submitAppCtrl.controller('submitAppCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
 
 	$scope.app = {};
-	$scope.success = false;
 	$scope.error = "";
 	$scope.submit = submit;
 
 	function submit() {
-		$scope.success = false;
 		$scope.error = "";
 
 		$http.post('/apps', $scope.app).success(function(data) {
-			$scope.success = true;
+			$location.path("/show/" + data.appId);
 		})
 		.error(function(error) {
 			$scope.error = error;

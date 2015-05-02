@@ -2,9 +2,8 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<h3>Submit your game</h3>
-		<div class="alert alert-success" role="alert" ng-show="success">Your game was successfully submitted.</div>
 		<div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
-		<form name="submitForm" ng-show="!success">
+		<form name="submitForm">
 		  <div class="form-group">
 		    <input type="text" class="form-control" id="appId" placeholder="Enter the Google Play ID or url" ng-model="app.appId" required>
 		    <span class="error" ng-show="submitForm.appId.$error.required">Required!</span>
